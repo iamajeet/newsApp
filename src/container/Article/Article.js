@@ -4,9 +4,6 @@ import './Article.css';
 class Article extends Component {
 
     render() {
-        //const { article } = this.props.article;
-        // console.log(article.urlToImage);
-
         return (
             <div className="col-sm-3 text-center">
                 <div className="card">

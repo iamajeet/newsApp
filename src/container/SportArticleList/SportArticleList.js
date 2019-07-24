@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Article from '../Article/Article';
-class ArticleList extends Component {
+
+class SportArtcleList extends Component {
+
     render() {
-        if (this.props.newsHeadlines.length > 0) {
+        if (this.props.sportNewsHeadlines.length > 0) {
             return (
                 <div className="container-fluid">
                     <div className="row">
                         {
-                            this.props.newsHeadlines.map(article => {
+                            this.props.sportNewsHeadlines.map(article => {
                                 return <Article
                                     article={article}
                                     key={article.url}
@@ -20,8 +22,7 @@ class ArticleList extends Component {
         } else {
             return <h3 className="text-center">Loading...</h3>
         }
-
     }
 }
 
-export default ArticleList;
+export default SportArtcleList;
