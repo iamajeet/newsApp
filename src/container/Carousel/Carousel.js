@@ -11,7 +11,9 @@ class Carousel extends Component {
                         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
                     </ol>
+
                     <div class="carousel-inner">
 
                         <CarouselItem active={true} />
