@@ -5,7 +5,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <img src="assets/logo.png" className="navbar-brand"></img>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

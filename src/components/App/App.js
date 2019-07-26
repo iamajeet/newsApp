@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div >
-        <Layout>
+        <Layout {...this.state}>
           <h1 className="text-center" style={{ marginTop: "20px", marginBottom: "20px" }}>Top Headlines (India)</h1>
           <ArticleList newsHeadlines={this.state.newsHeadlinesData} />
           <h1 className="text-center" style={{ marginTop: "20px", marginBottom: "20px" }} >Sports</h1>

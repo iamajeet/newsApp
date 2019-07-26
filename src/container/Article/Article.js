@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Article.css';
-
+import { text_truncate } from '../../helper/newsHelper';
 class Article extends Component {
 
     render() {
         return (
-            <div className="col-sm-3 text-center">
-                <div className="card">
-                    <img src={this.props.article.urlToImage} className="card-img-top" alt="..." />
+            <div className="col-md-3 text-center" style={{ marginTop: "15px" }}>
+                <div className="card" style={{ height: "30rem" }}>
+                    <img src={this.props.article.urlToImage} className="card-img-top img-fluid" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{this.props.article.title}</h5>
                         <p className="card-text">{this.props.article.description}</p>

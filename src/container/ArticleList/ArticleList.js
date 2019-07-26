@@ -4,8 +4,8 @@ class ArticleList extends Component {
     render() {
         if (this.props.newsHeadlines.length > 0) {
             return (
-                <div className="container-fluid">
-                    <div className="row">
+                <div className="container">
+                    <div className="row" >
                         {
                             this.props.newsHeadlines.map(article => {
                                 return <Article

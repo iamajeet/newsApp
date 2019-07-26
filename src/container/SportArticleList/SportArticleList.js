@@ -6,7 +6,7 @@ class SportArtcleList extends Component {
     render() {
         if (this.props.sportNewsHeadlines.length > 0) {
             return (
-                <div className="container-fluid">
+                <div className="container">
                     <div className="row">
                         {
                             this.props.sportNewsHeadlines.map(article => {
