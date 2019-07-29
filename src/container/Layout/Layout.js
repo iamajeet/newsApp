@@ -6,7 +6,7 @@ import '../Toolbar/Toolbar';
 //import Footer from '../Footer/Footer';
 //import Jumbotron from '../Jumbotron/Jumbotron';
 import Header from '../Header/Header';
-import Carousel from '../Carousel/Carousel';
+//import Carousel from '../Carousel/Carousel';
 
 class Layout extends Component {
     render() {
@@ -14,7 +14,7 @@ class Layout extends Component {
         return (
             <Aux>
                 <Header />
-                <Carousel />
+
                 <main>
                     {this.props.children}
                 </main>

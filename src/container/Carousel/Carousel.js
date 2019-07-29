@@ -1,38 +1,45 @@
 import React, { Component } from 'react';
 import CarouselItem from '../CarouselItem/CarouselItem';
+import { createCarouselData } from '../../helper/newsHelper';
 
 class Carousel extends Component {
 
     render() {
-        return (
-            <div class="container">
-                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-                    </ol>
+        let a = createCarouselData(this.props.carouselData);
+        if (this.props.carouselData.length > 0) {
+            return (
+                <div class="container">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            {
 
-                    <div class="carousel-inner">
-
-                        <CarouselItem active={true} />
-                        <CarouselItem active={false} />
-                        <CarouselItem active={false} />
-                        <CarouselItem active={false} />
+                                a.map(article => {
+                                    return <CarouselItem active={article.active}  {...this.props} article={article.article}
+                                        key={article.article.url} />
+                                })
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
-            </div>
 
-        );
+            );
+        } else {
+            return <h3 className="text-center">loading...</h3>;
+        }
     }
 }
 
@@ -64,3 +71,11 @@ export default Carousel;
 //     </div>
 // </div>
 // </div>
+
+
+
+
+//<CarouselItem active={true}  {...this.props} />
+//<CarouselItem active={false} {...this.props} />
+//<CarouselItem active={false} {...this.props} />
+//<CarouselItem active={false} {...this.props} />

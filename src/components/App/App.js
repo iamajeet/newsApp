@@ -5,7 +5,7 @@ import ArticleList from '../../container/ArticleList/ArticleList';
 import PropTypes from 'prop-types';
 import { getHeadLinesNews } from '../../helper/newsHelper';
 import SportArtcleList from '../../container/SportArticleList/SportArticleList';
-
+import Carousel from '../../container/Carousel/Carousel';
 
 
 class App extends Component {
@@ -13,20 +13,32 @@ class App extends Component {
     super(props);
     this.state = {
       newsHeadlinesData: [],
-      sportNewsHeadlinesData: []
+      sportNewsHeadlinesData: [],
+      carouselData: []
     };
   }
 
   componentDidMount() {
     this.fetchnewsHeadlinesDataFromApi();
+    this.fetchCarouselDataFromApi();
     this.fetchSportsNewsDataFromApi();
+
+  }
+
+  fetchCarouselDataFromApi() {
+    getHeadLinesNews('https://newsapi.org/v2/top-headlines?country=in&pageSize=4&apiKey=' + this.props.apiKey).then(response => {
+      this.setState({ carouselData: response.data.articles });
+      //console.log(response.data.articles);
+    }).catch(response => {
+      console.log(response);
+    });
   }
 
 
   fetchnewsHeadlinesDataFromApi() {
     getHeadLinesNews('https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=' + this.props.apiKey).then(response => {
       this.setState({ newsHeadlinesData: response.data.articles });
-      console.log(response.data.articles);
+      // console.log(response.data.articles);
     }).catch(response => {
       console.log(response);
     });
@@ -34,20 +46,18 @@ class App extends Component {
   fetchSportsNewsDataFromApi() {
     getHeadLinesNews('https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=' + this.props.apiKey).then(response => {
       this.setState({ sportNewsHeadlinesData: response.data.articles });
-      console.log(response.data.articles);
+      // console.log(response.data.articles);
     }).catch(response => {
       console.log(response);
     });
   }
 
 
-
-
-
   render() {
     return (
       <div >
         <Layout {...this.state}>
+          <Carousel carouselData={this.state.carouselData} />
           <h1 className="text-center" style={{ marginTop: "20px", marginBottom: "20px" }}>Top Headlines (India)</h1>
           <ArticleList newsHeadlines={this.state.newsHeadlinesData} />
           <h1 className="text-center" style={{ marginTop: "20px", marginBottom: "20px" }} >Sports</h1>

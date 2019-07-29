@@ -20,7 +20,7 @@ class SportArtcleList extends Component {
                 </div>
             );
         } else {
-            return <h3 className="text-center">Loading...</h3>
+            return <h3 className="text-center">loading...</h3>
         }
     }
 }
